@@ -1,0 +1,604 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>DAM1SanchezVega_LuisMiguel202306ProyectoFinal_TiposEmpleadosTienda.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #404040; background-color: #e9e8e2; font-family: monospace}
+.ST3 {font-family: monospace; font-weight: bold; font-style: italic}
+.ST7 {font-family: monospace; font-style: italic}
+.ST1 {color: #969696; font-family: monospace; font-weight: bold}
+.ST2 {font-family: monospace; font-weight: bold}
+.comment {color: #969696}
+.ST0 {color: #287bde}
+.ST4 {color: #ce54b8}
+.ST5 {color: #ce54b8; font-family: monospace; font-style: italic}
+.string {color: #1e9347}
+.ST6 {color: #1e9347; font-family: monospace; font-weight: bold}
+.literal {color: #336bdd}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">/media/alumnom/PENDRIVE/DAM1SanchezVega_LuisMiguel202306ProyectoFinal_TiposEmpleadosTienda/PROYECTO_JAVA/DAM1SanchezVega_LuisMiguel202306ProyectoFinal_TiposEmpleadosTienda/src/dam1sanchezvega_luismiguel202306proyectofinal_tiposempleadostienda/DAM1SanchezVega_LuisMiguel202306ProyectoFinal_TiposEmpleadosTienda.java</td></tr></table>
+<pre>
+<span class="comment">/*</span>
+<span class="comment"> * Click </span><span class="ST0">nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt</span><span class="comment"> to change this license</span>
+<span class="comment"> * Click </span><span class="ST0">nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java</span><span class="comment"> to edit this template</span>
+<span class="comment"> */</span>
+<span class="literal">package</span> dam1sanchezvega_luismiguel202306proyectofinal_tiposempleadostienda;
+
+<span class="literal">import</span> java.util.LinkedList;
+<span class="literal">import</span> java.util.HashMap;
+<span class="literal">import</span> java.util.InputMismatchException;
+<span class="literal">import</span> java.util.Scanner;
+<span class="literal">import</span> javax.swing.JOptionPane;
+<span class="literal">import</span> java.util.regex.*;
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST1">@author</span> <span class="comment">alumnom</span>
+ <span class="comment">*/</span>
+
+<span class="comment">/*</span>
+<span class="comment">    SOBRE EL PROYECTO: este proyecto consiste en que usando diferentes clases, crear un sistema de gestión de empleados de una Tienda, teniendo la clase base &#39;Empleado&#39; la cual</span>
+<span class="comment">    es abstracta y de la que sus subclases heredarán sus características más básicas para ir añadiendo atributos y métodos más específicos dependiendo del puesto de trabajo de</span>
+<span class="comment">    los posibles empleados de una tienda. Estos son &#39;EmpleadoSala&#39; que es el trabajor de cara al público directamente en la tienda, &#39;EmpleadoAlmacen&#39; que es el que trabaja en</span>
+<span class="comment">    los almacenes de la tienda,&#39;Encargado&#39; que es el que está a cargo de cierto departamento de la tienda y &#39;Gerente&#39; que es el que se encarga de gestionar a los empleados de la</span>
+<span class="comment">    tienda en sí. He decidido que &#39;Gerente&#39; herede de &#39;Encargado&#39; ya que al tener responsabilidades similares, en muchas tiendas estos puestos son ocupados por la misma</span>
+<span class="comment">    persona, por eso dejo la opción de que un Gerente tenga un Departamento asignado en caso que se trate de gestionar una Tienda que no cuente con personas distintas para este puesto.</span>
+<span class="comment"> */</span>
+<span class="literal">public</span> <span class="literal">class</span> <span class="ST2">DAM1SanchezVega_LuisMiguel202306ProyectoFinal_TiposEmpleadosTienda</span> {
+
+    <span class="comment">/**</span>
+<span class="comment">     * </span><span class="ST1">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+     <span class="comment">*/</span>
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String[] args) {
+        <span class="comment">// CREAMOS LA TIENDA Y EL ALMACEN</span>
+        Tienda tiendaInicial;
+        Almacen almacenInicial = <span class="literal">new</span> Almacen();
+        <span class="comment">// Le asignamos una letra al almacen</span>
+        almacenInicial.setLetraIdentificativa(<span class="string">&#39;</span><span class="string">A</span><span class="string">&#39;</span>);
+
+        <span class="comment">// Creamos un Array con los diferentes departamentos de la tienda dinamicamente.</span>
+        Departamento[] arrDepartamentos = {
+            <span class="literal">new</span> Departamento(<span class="literal">new</span> LinkedList&lt;&gt;(), <span class="string">&quot;</span><span class="string">Ventas</span><span class="string">&quot;</span>), <span class="comment">// Departamento &#39;0&#39;</span>
+            <span class="literal">new</span> Departamento(<span class="literal">new</span> LinkedList&lt;&gt;(), <span class="string">&quot;</span><span class="string">Compras</span><span class="string">&quot;</span>), <span class="comment">// Departamento &#39;1&#39;</span>
+            <span class="literal">new</span> Departamento(<span class="literal">new</span> LinkedList&lt;&gt;(), <span class="string">&quot;</span><span class="string">Marketing</span><span class="string">&quot;</span>), <span class="comment">// Departamento &#39;2&#39;</span>
+            <span class="literal">new</span> Departamento(<span class="literal">new</span> LinkedList&lt;&gt;(), <span class="string">&quot;</span><span class="string">Personal</span><span class="string">&quot;</span>) <span class="comment">// Departamento &#39;3&#39;</span>
+        };
+
+        <span class="comment">// Creamos una lista para almacenar los departamentos</span>
+        LinkedList&lt;Departamento&gt; departamentos = <span class="literal">new</span> LinkedList&lt;&gt;();
+
+        <span class="comment">// Añadimos los elementos del Array de Departamentos a la lista</span>
+        <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; arrDepartamentos.<span class="ST4">length</span>; i++) {
+            departamentos.add(arrDepartamentos[i]);
+        }
+
+        <span class="comment">// CREACIÓN DE EMPLEADOS</span>
+        <span class="comment">// Creamos al Gerente de la Tienda y el Almacen.</span>
+        Gerente gerenteInicial = <span class="literal">new</span> Gerente(<span class="string">&quot;</span><span class="string">Luis</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">C/Picasso 5</span><span class="string">&quot;</span>, 2100, <span class="literal">new</span> LinkedList&lt;&gt;(), departamentos.get(1), <span class="string">&quot;</span><span class="string">control de Stock</span><span class="string">&quot;</span>);
+
+        <span class="comment">// Creamos un Array de los Empleados de la Tienda dinamicamente</span>
+        Empleado[] arrEmpleadosTienda = {
+            <span class="literal">new</span> EmpleadoSala(<span class="string">&quot;</span><span class="string">Marta</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">C/Lorca 6</span><span class="string">&quot;</span>, 1100, <span class="literal">new</span> LinkedList&lt;&gt;(), <span class="string">&quot;</span><span class="string">Caja</span><span class="string">&quot;</span>),
+            <span class="literal">new</span> EmpleadoSala(<span class="string">&quot;</span><span class="string">Carlos</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">C/Genesis 6</span><span class="string">&quot;</span>, 950, <span class="literal">new</span> LinkedList&lt;&gt;(), <span class="string">&quot;</span><span class="string">Reponedor</span><span class="string">&quot;</span>),
+            <span class="literal">new</span> EmpleadoSala(<span class="string">&quot;</span><span class="string">Andrea</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">C/DaVinci 12</span><span class="string">&quot;</span>, 1200, <span class="literal">new</span> LinkedList&lt;&gt;(), <span class="string">&quot;</span><span class="string">Seguridad</span><span class="string">&quot;</span>),
+            <span class="literal">new</span> Encargado(<span class="string">&quot;</span><span class="string">Miguel</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">C/Dali 45</span><span class="string">&quot;</span>, 1850, <span class="literal">new</span> LinkedList&lt;&gt;(), departamentos.get(3)),
+            <span class="literal">new</span> EmpleadoAlmacen(<span class="string">&quot;</span><span class="string">Lucia</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">C/Gogh 4</span><span class="string">&quot;</span>, 1200, <span class="literal">new</span> LinkedList&lt;&gt;(), almacenInicial),
+            <span class="literal">new</span> EmpleadoAlmacen(<span class="string">&quot;</span><span class="string">David</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">C/Pollock 2</span><span class="string">&quot;</span>, 1100, <span class="literal">new</span> LinkedList&lt;&gt;(), almacenInicial),
+            <span class="literal">new</span> EmpleadoAlmacen(<span class="string">&quot;</span><span class="string">Beatriz</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">C/Vermeer 10</span><span class="string">&quot;</span>, 1100, <span class="literal">new</span> LinkedList&lt;&gt;(), almacenInicial)
+        };
+
+        <span class="comment">// Creamos Mapas para meter a los Empleados de la Tienda</span>
+        <span class="comment">/*</span>
+<span class="comment">            He elegido usar mapas para almacenar los empleados ya que el sistema &#39;clave-valor&#39; hace más sencillo el buscar objetos.</span>
+<span class="comment">         */</span>
+        HashMap&lt;Integer, Empleado&gt; mapaEmpleados = <span class="literal">new</span> HashMap&lt;&gt;();
+
+        <span class="comment">// Añadimos los elementos del Array a los mapas</span>
+        <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; arrEmpleadosTienda.<span class="ST4">length</span>; i++) {
+            mapaEmpleados.put(i, arrEmpleadosTienda[i]);
+        }
+
+        <span class="comment">// Añadimos todo el contenido en la Tienda</span>
+        tiendaInicial = <span class="literal">new</span> Tienda(<span class="string">&quot;</span><span class="string">ElCorteIngles</span><span class="string">&quot;</span>, mapaEmpleados, departamentos, gerenteInicial);
+        <span class="comment">// Creamos otra lista en la que se almacenarán las tiendas registradas y añadimos la creada por defecto</span>
+        LinkedList&lt;Tienda&gt; tiendasRegistradas = <span class="literal">new</span> LinkedList&lt;&gt;();
+        tiendasRegistradas.add(tiendaInicial);
+
+        <span class="comment">// Variables de los menús        </span>
+        <span class="literal">int</span> select;
+        Tienda tiendaSeleccionada = tiendasRegistradas.get(0); <span class="comment">// Seleccionador de tiendas (se pueden tener más de una), por defecto se elije la creada más arriba</span>
+        <span class="literal">int</span> contadorEmple = tiendaSeleccionada.getListaEmpleados().size(); <span class="comment">// Lleva el recuento de claves del mapa de Empleados: Uso el tamaño del mapa para que al añadir más empleados, la clave siga desde la última clave añadida</span>
+        
+        <span class="comment">// Otras variables y Constantes</span>
+        Scanner entrada = <span class="literal">new</span> Scanner(System.<span class="ST5">in</span>);
+        Pattern p;
+        Matcher m;
+        String direccion = <span class="string">&quot;&quot;</span>;
+        <span class="literal">final</span> String patronDir = <span class="string">&quot;</span><span class="string">C</span><span class="ST6">\\</span><span class="string">/[A-Za-z]+ [0-9]+</span><span class="string">&quot;</span>;
+
+        <span class="literal">do</span> {
+            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">MENÚ PRINCIPAL de </span><span class="string">&quot;</span> + tiendaSeleccionada.getNombreTienda());
+            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">==========================================</span><span class="string">&quot;</span>);
+            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">1) Abrir Gestión de Personal</span><span class="string">&quot;</span>);
+            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">2) Asignar tareas por Departamento</span><span class="string">&quot;</span>);
+            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">3) Asignar tareas por Empleado</span><span class="string">&quot;</span>);
+            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">4) Monitorear Trabajadores</span><span class="string">&quot;</span>);
+            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">5) Cambiar de Tienda</span><span class="string">&quot;</span>);
+            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">6) Ver cantidad de personal</span><span class="string">&quot;</span>);
+            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">---------------------------------</span><span class="string">&quot;</span>);
+            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">0) Salir</span><span class="string">&quot;</span>);
+            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">==========================================</span><span class="string">&quot;</span>);
+            System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Elige una opción: </span><span class="string">&quot;</span>);
+            <span class="literal">try</span> {
+                <span class="literal">int</span> opcion = Integer.<span class="ST7">parseInt</span>(entrada.nextLine());
+                <span class="literal">switch</span> (opcion) {
+                    <span class="literal">case</span> 0:
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">¡Hasta luego!</span><span class="string">&quot;</span>);
+                        System.<span class="ST7">exit</span>(0);
+                    <span class="literal">case</span> 1:
+                        <span class="comment">// Menú de Gestión de Personal con JOptionPane</span>
+
+                        select = -1;<span class="comment">// Inicializo el selector de opciones con un número diferente a 0 para que entre en el bucle del menú (cuya condición es select != 0)</span>
+                        <span class="comment">// Tampoco debe ser positivo para que no esté seleccionada una opción por defecto (EJ: En select = 1 la primera opción del siguiente menú estaría elegida internamente por defecto en vez de dejar al usuario elegir)</span>
+                        <span class="literal">while</span> (select != 0) {
+                            Object[] opciones = {<span class="string">&quot;</span><span class="string">Añadir Empleado en Sala</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Añadir Empleado en Almacen</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Añadir Encargado</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Añadir Gerente</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Mostrar Empleados</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Atrás</span><span class="string">&quot;</span>};
+                            <span class="literal">int</span> seleccion = JOptionPane.<span class="ST7">showOptionDialog</span>(<span class="literal">n</span><span class="literal">ull</span>, <span class="string">&quot;</span><span class="string">Elige: </span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Menú</span><span class="string">&quot;</span>, JOptionPane.<span class="ST5">DEFAULT_OPTION</span>, JOptionPane.<span class="ST5">PLAIN_MESSAGE</span>, <span class="literal">n</span><span class="literal">ull</span>, opciones, opciones[0]);
+                            
+                            <span class="literal">switch</span> (seleccion) {
+                                <span class="literal">case</span> 0: <span class="comment">// Crear EmpleadoSala</span>
+                                    <span class="literal">try</span> {
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">Escribe el nombre del Empleado: </span><span class="string">&quot;</span>);
+                                    String nombre = entrada.nextLine();
+                                    <span class="literal">do</span> {
+                                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">Escribe la direccion del Empleado: </span><span class="string">&quot;</span>);
+                                        System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Debe escribirlo con el formato </span><span class="ST6">\&quot;</span><span class="string">C/NombreCalle NumeroCalle</span><span class="ST6">\&quot;</span><span class="string">: </span><span class="string">&quot;</span>);
+                                        direccion = entrada.nextLine();
+                                        <span class="comment">// Comprobamos el formato de la dirección con una Expresión Regular</span>
+                                        p = Pattern.<span class="ST7">compile</span>(patronDir);
+                                        m = p.matcher(direccion);
+                                        <span class="literal">if</span> (m.matches()) {
+                                        } <span class="literal">else</span> {
+                                            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: La dirección no tiene el formato correcto.</span><span class="string">&quot;</span>);
+                                        }
+                                    } <span class="literal">while</span> (!m.matches());
+
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe el salario del Empleado: </span><span class="string">&quot;</span>);
+                                    <span class="literal">double</span> salario = Double.<span class="ST7">parseDouble</span>(entrada.nextLine());
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe el puesto del Empleado: </span><span class="string">&quot;</span>);
+                                    String puesto = entrada.nextLine();
+                                    tiendaSeleccionada.getListaEmpleados().put(contadorEmple, <span class="literal">new</span> EmpleadoSala(nombre, direccion, salario, <span class="literal">new</span> LinkedList&lt;&gt;(), puesto));
+                                    contadorEmple++;
+                                    <span class="literal">break</span>;
+                                } <span class="literal">catch</span> (InputMismatchException e) {
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Los datos introducidos no son del tipo esperado.</span><span class="string">&quot;</span>);
+                                } <span class="literal">catch</span> (NumberFormatException e) {
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Los datos numéricos tienen el formato incorrecto.</span><span class="string">&quot;</span>);
+                                }
+                                <span class="literal">case</span> 1: <span class="comment">// Crear EmpleadoAlmacen</span>
+                                    <span class="literal">try</span> {
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">Escribe el nombre del Empleado: </span><span class="string">&quot;</span>);
+                                    String nombre = entrada.nextLine();
+                                    <span class="literal">do</span> {
+                                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">Escribe la direccion del Empleado: </span><span class="string">&quot;</span>);
+                                        System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Debe escribirlo con el formato </span><span class="ST6">\&quot;</span><span class="string">C/NombreCalle NumeroCalle</span><span class="ST6">\&quot;</span><span class="string">: </span><span class="string">&quot;</span>);
+                                        direccion = entrada.nextLine();
+                                        <span class="comment">// Comprobamos el formato de la dirección con una Expresión Regular</span>
+                                        p = Pattern.<span class="ST7">compile</span>(patronDir);
+                                        m = p.matcher(direccion);
+                                        <span class="literal">if</span> (m.matches()) {
+                                        } <span class="literal">else</span> {
+                                            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: La dirección no tiene el formato correcto.</span><span class="string">&quot;</span>);
+                                        }
+                                    } <span class="literal">while</span> (!m.matches());
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe el salario del Empleado: </span><span class="string">&quot;</span>);
+                                    <span class="literal">double</span> salario = Double.<span class="ST7">parseDouble</span>(entrada.nextLine());
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe la letra del Almacen asignado al Empleado: </span><span class="string">&quot;</span>);
+                                    <span class="literal">char</span> almacen = entrada.nextLine().charAt(0);
+                                    tiendaSeleccionada.getListaEmpleados().put(contadorEmple, <span class="literal">new</span> EmpleadoAlmacen(nombre, direccion, salario, <span class="literal">new</span> LinkedList&lt;&gt;(), <span class="literal">new</span> Almacen(tiendaSeleccionada.getGerenteTienda(), almacen)));
+                                    contadorEmple++;
+                                    <span class="literal">break</span>;
+                                } <span class="literal">catch</span> (InputMismatchException e) {
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Los datos introducidos no son del tipo esperado.</span><span class="string">&quot;</span>);
+                                } <span class="literal">catch</span> (NumberFormatException e) {
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Los datos numéricos tienen el formato incorrecto.</span><span class="string">&quot;</span>);
+                                }
+                                <span class="literal">case</span> 2: <span class="comment">// Crear Encargado</span>
+                                    <span class="literal">try</span> {
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">Escribe el nombre del Encargado: </span><span class="string">&quot;</span>);
+                                    String nombre = entrada.nextLine();
+                                    <span class="literal">do</span> {
+                                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">Escribe la direccion del Encargado: </span><span class="string">&quot;</span>);
+                                        System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Debe escribirlo con el formato </span><span class="ST6">\&quot;</span><span class="string">C/NombreCalle NumeroCalle</span><span class="ST6">\&quot;</span><span class="string">: </span><span class="string">&quot;</span>);
+                                        direccion = entrada.nextLine();
+                                        <span class="comment">// Comprobamos el formato de la dirección con una Expresión Regular</span>
+                                        p = Pattern.<span class="ST7">compile</span>(patronDir);
+                                        m = p.matcher(direccion);
+                                        <span class="literal">if</span> (m.matches()) {
+                                        } <span class="literal">else</span> {
+                                            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: La dirección no tiene el formato correcto.</span><span class="string">&quot;</span>);
+                                        }
+                                    } <span class="literal">while</span> (!m.matches());
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe el salario del Encargado: </span><span class="string">&quot;</span>);
+                                    <span class="literal">double</span> salario = Double.<span class="ST7">parseDouble</span>(entrada.nextLine());
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">Elige el Departamento que gestiona el Encargado: </span><span class="string">&quot;</span>);
+                                    <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; tiendaSeleccionada.getDepartamentosTienda().size(); i++) {
+                                        System.<span class="ST5">out</span>.println(i + 1 + <span class="string">&quot;</span><span class="string">. </span><span class="string">&quot;</span> + tiendaSeleccionada.getDepartamentosTienda().get(i).getNombreDepart());
+                                    }
+                                    <span class="literal">int</span> depart = Integer.<span class="ST7">parseInt</span>(entrada.nextLine());
+                                    <span class="literal">if</span> (depart &lt; 0 &amp;&amp; depart &gt; tiendaSeleccionada.getDepartamentosTienda().size()) {
+                                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Opción no válida.</span><span class="string">&quot;</span>);
+                                    } <span class="literal">else</span> {
+                                        tiendaSeleccionada.getListaEmpleados().put(contadorEmple, <span class="literal">new</span> Encargado(nombre, direccion, salario, <span class="literal">new</span> LinkedList&lt;&gt;(), tiendaSeleccionada.getDepartamentosTienda().get(depart - 1)));
+                                    }
+                                    contadorEmple++;
+                                    <span class="literal">break</span>;
+                                } <span class="literal">catch</span> (InputMismatchException e) {
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Los datos introducidos no son del tipo esperado.</span><span class="string">&quot;</span>);
+                                } <span class="literal">catch</span> (NumberFormatException e) {
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Los datos numéricos tienen el formato incorrecto.</span><span class="string">&quot;</span>);
+                                }
+                                <span class="literal">case</span> 3: <span class="comment">// Crear Gerente</span>
+                                    <span class="literal">try</span> {
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">Escribe el nombre del Gerente: </span><span class="string">&quot;</span>);
+                                    String nombre = entrada.nextLine();
+                                    <span class="literal">do</span> {
+                                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">Escribe la direccion del Gerente: </span><span class="string">&quot;</span>);
+                                        System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Debe escribirlo con el formato </span><span class="ST6">\&quot;</span><span class="string">C/NombreCalle NumeroCalle</span><span class="ST6">\&quot;</span><span class="string">: </span><span class="string">&quot;</span>);
+                                        direccion = entrada.nextLine();
+                                        <span class="comment">// Comprobamos el formato de la dirección con una Expresión Regular</span>
+                                        p = Pattern.<span class="ST7">compile</span>(patronDir);
+                                        m = p.matcher(direccion);
+                                        <span class="literal">if</span> (m.matches()) {
+                                        } <span class="literal">else</span> {
+                                            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: La dirección no tiene el formato correcto.</span><span class="string">&quot;</span>);
+                                        }
+                                    } <span class="literal">while</span> (!m.matches());
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe el salario del Gerente: </span><span class="string">&quot;</span>);
+                                    <span class="literal">double</span> salario = Double.<span class="ST7">parseDouble</span>(entrada.nextLine());
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe el tipo de gestión que realiza en el Departamento el Gerente: </span><span class="string">&quot;</span>);
+                                    String gestion = entrada.nextLine();
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">Elige el Departamento que gestiona el Gerente: </span><span class="string">&quot;</span>);
+                                    <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; tiendaSeleccionada.getDepartamentosTienda().size(); i++) {
+                                        System.<span class="ST5">out</span>.println(i + 1 + <span class="string">&quot;</span><span class="string">. </span><span class="string">&quot;</span> + tiendaSeleccionada.getDepartamentosTienda().get(i).getNombreDepart());
+                                    }
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Elija una opción: </span><span class="string">&quot;</span>);
+                                    <span class="literal">int</span> depart = Integer.<span class="ST7">parseInt</span>(entrada.nextLine());
+                                    <span class="literal">if</span> (depart &lt; 0 &amp;&amp; depart &gt; tiendaSeleccionada.getDepartamentosTienda().size()) {
+                                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Opción no válida.</span><span class="string">&quot;</span>);
+                                    } <span class="literal">else</span> {
+                                        tiendaSeleccionada.getListaEmpleados().put(contadorEmple, <span class="literal">new</span> Gerente(nombre, direccion, salario, <span class="literal">new</span> LinkedList&lt;&gt;(), tiendaSeleccionada.getDepartamentosTienda().get(depart - 1), gestion));
+                                    }
+                                    contadorEmple++;
+                                    <span class="literal">break</span>;
+                                } <span class="literal">catch</span> (InputMismatchException e) {
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Los datos introducidos no son del tipo esperado.</span><span class="string">&quot;</span>);
+                                } <span class="literal">catch</span> (NumberFormatException e) {
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Los datos numéricos tienen el formato incorrecto.</span><span class="string">&quot;</span>);
+                                }
+                                <span class="literal">case</span> 4: <span class="comment">// Ver Empleados</span>
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">TABLA CON DATOS BÁSICOS DE LOS EMPLEADOS</span><span class="string">&quot;</span>);
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">====================================================</span><span class="string">&quot;</span>);
+                                    System.<span class="ST5">out</span>.printf(<span class="string">&quot;</span><span class="string">%15s %15s %15s</span><span class="ST6">\n</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">NOMBRE</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">DIRECCION</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">SALARIO</span><span class="string">&quot;</span>);
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">====================================================</span><span class="string">&quot;</span>);
+                                    <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; tiendaSeleccionada.getListaEmpleados().size(); i++) {
+                                        System.<span class="ST5">out</span>.printf(<span class="string">&quot;</span><span class="string">%15s %15s %15s€</span><span class="ST6">\n</span><span class="string">&quot;</span>, tiendaSeleccionada.getListaEmpleados().get(i).getNombre(), tiendaSeleccionada.getListaEmpleados().get(i).getDireccion(), tiendaSeleccionada.getListaEmpleados().get(i).getSalario());
+                                    }
+                                    System.<span class="ST5">out</span>.printf(<span class="string">&quot;</span><span class="string">%15s %15s %15s€</span><span class="ST6">\n</span><span class="string">&quot;</span>, tiendaSeleccionada.getGerenteTienda().getNombre(), tiendaSeleccionada.getGerenteTienda().getDireccion(), tiendaSeleccionada.getGerenteTienda().getSalario());
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">====================================================</span><span class="string">&quot;</span>);
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">LISTA CON LOS DATOS DE LOS EMPLEADOS</span><span class="string">&quot;</span>);
+                                    <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; tiendaSeleccionada.getListaEmpleados().size(); i++) {
+                                        System.<span class="ST5">out</span>.println(tiendaSeleccionada.getListaEmpleados().get(i));
+                                    }
+                                    System.<span class="ST5">out</span>.println(tiendaSeleccionada.getGerenteTienda());
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">&quot;</span>);<span class="comment">// Espacio en blanco para separar la salida de datos</span>
+                                    <span class="literal">break</span>;
+                                <span class="literal">case</span> 5: <span class="comment">// Salir del menu JOptionPane</span>
+                                    select = 0; <span class="comment">//Reseteo la opcion seleccionada</span>
+                                    <span class="literal">break</span>;
+                                <span class="literal">default</span>:
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Opción no válida.</span><span class="string">&quot;</span>);
+                                    <span class="literal">break</span>;
+                            }
+                        }
+                        <span class="literal">break</span>;
+                    <span class="literal">case</span> 2:
+                        <span class="comment">// Asignar tareas a departamentos</span>
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">¿A qué Departamentos quiere asignarle tareas?</span><span class="string">&quot;</span>);
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">==============================================</span><span class="string">&quot;</span>);
+                        <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; tiendaSeleccionada.getDepartamentosTienda().size(); i++) {
+                            System.<span class="ST5">out</span>.println(i + 1 + <span class="string">&quot;</span><span class="string">. </span><span class="string">&quot;</span> + tiendaSeleccionada.getDepartamentosTienda().get(i).getNombreDepart());
+                        }
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">----------------------------------------------</span><span class="string">&quot;</span>);
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">0) Volver atrás</span><span class="string">&quot;</span>);
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">==============================================</span><span class="string">&quot;</span>);
+                        System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Elige una opción: </span><span class="string">&quot;</span>);
+                        <span class="literal">int</span> opcionTareasDep = Integer.<span class="ST7">parseInt</span>(entrada.nextLine());
+                        <span class="comment">// Opciones</span>
+                        <span class="literal">if</span> (opcionTareasDep &lt; 0 &amp;&amp; opcionTareasDep &gt; 4) {
+                            <span class="literal">break</span>;
+                        } <span class="literal">else</span> <span class="literal">if</span> (opcionTareasDep == 0) {
+                            <span class="literal">break</span>;
+                        } <span class="literal">else</span> {
+                            System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">Escribe un nombre para la tarea: </span><span class="string">&quot;</span>);
+                            String nombreTarea = entrada.nextLine();
+                            System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe la descripción de la tarea: </span><span class="string">&quot;</span>);
+                            String descripcion = entrada.nextLine();
+                            Tarea tarea = <span class="literal">new</span> Tarea(nombreTarea, descripcion);
+
+                            tiendaSeleccionada.getDepartamentosTienda().get(opcionTareasDep - 1).getTareasDepart().add(tarea);
+                        }
+                        <span class="comment">// Mostramos las tareas de cada Departamento</span>
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">LISTA DE TAREAS---------------------------------</span><span class="string">&quot;</span>);
+                        <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; tiendaSeleccionada.getDepartamentosTienda().size(); i++) {
+                            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">DEPARTAMENTO DE </span><span class="string">&quot;</span> + tiendaSeleccionada.getDepartamentosTienda().get(i).getNombreDepart() + <span class="string">&quot;</span><span class="ST6">\n</span><span class="string">&quot;</span> + tiendaSeleccionada.getDepartamentosTienda().get(i).getTareasDepart());
+                        }
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">------------------------------------------------</span><span class="string">&quot;</span>);
+                        <span class="literal">break</span>;
+
+                    <span class="literal">case</span> 3:
+                        <span class="comment">// Asignar tareas a empleados</span>
+                        System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">Escribe un nombre para la tarea: </span><span class="string">&quot;</span>);
+                        String nombreTarea = entrada.nextLine();
+                        System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe la descripción de la tarea: </span><span class="string">&quot;</span>);
+                        String descripcion = entrada.nextLine();
+                        Tarea tarea = <span class="literal">new</span> Tarea(nombreTarea, descripcion);
+
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">LISTA DE LOS EMPLEADOS</span><span class="string">&quot;</span>);
+                        <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; tiendaSeleccionada.getListaEmpleados().size(); i++) {
+                            System.<span class="ST5">out</span>.println(tiendaSeleccionada.getListaEmpleados().get(i));
+                        }
+                        System.<span class="ST5">out</span>.println(tiendaSeleccionada.getGerenteTienda());
+
+                        System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">¿A quién quiere asignarle tareas?(Escriba unicamente su nombre): </span><span class="string">&quot;</span>);
+                        String nombreEmpleadoAsig = entrada.nextLine();
+                        <span class="literal">try</span> {
+                            <span class="ST7">buscarEmpleado</span>(tiendaSeleccionada, nombreEmpleadoAsig).getTareas().add(tarea);
+                            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">Tareas del empleado </span><span class="string">&quot;</span> + nombreEmpleadoAsig + <span class="string">&quot;</span><span class="string">: </span><span class="string">&quot;</span> + <span class="ST7">buscarEmpleado</span>(tiendaSeleccionada, nombreEmpleadoAsig).getTareas());
+                        } <span class="literal">catch</span> (NullPointerException e) {
+                            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: El nombre indicado no se encuentra en los empleados registrados.</span><span class="string">&quot;</span>);
+                        }
+                        <span class="literal">break</span>;
+                    <span class="literal">case</span> 4:
+                        <span class="comment">// Monitorear tareas de empleados</span>
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">LISTA DE LOS EMPLEADOS</span><span class="string">&quot;</span>);
+                        <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; tiendaSeleccionada.getListaEmpleados().size(); i++) {
+                            System.<span class="ST5">out</span>.println(tiendaSeleccionada.getListaEmpleados().get(i));
+                        }
+                        System.<span class="ST5">out</span>.println(tiendaSeleccionada.getGerenteTienda());
+
+                        System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">¿A quién quiere monitorear?(Escriba unicamente su nombre): </span><span class="string">&quot;</span>);
+                        String nombreEmpleadoMon = entrada.nextLine();
+                        <span class="literal">try</span> {
+                            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">TRABAJO ASIGNADO AL EMPLEADO</span><span class="string">&quot;</span>);
+                            System.<span class="ST5">out</span>.println(<span class="ST7">b</span><span class="ST7">uscarEmpleado</span>(tiendaSeleccionada, nombreEmpleadoMon).trabajo());
+                        } <span class="literal">catch</span> (NullPointerException e) {
+                            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: El nombre indicado no se encuentra en los empleados registrados.</span><span class="string">&quot;</span>);
+                        }
+
+                        <span class="literal">break</span>;
+                    <span class="literal">case</span> 5:
+                        <span class="comment">// cambiar de tienda</span>
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">TIENDAS REGISTRADAS-----------------------------</span><span class="string">&quot;</span>);
+                        <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; tiendasRegistradas.size(); i++) {
+                            System.<span class="ST5">out</span>.println(i + 1 + <span class="string">&quot;</span><span class="string">. </span><span class="string">&quot;</span> + tiendasRegistradas.get(i).getNombreTienda());
+                        }
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">¿QUE QUIERE HACER?------------------------------</span><span class="string">&quot;</span>);
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">1. Cambiar de Tienda</span><span class="ST6">\n</span><span class="string">2. Registrar Tienda Nueva</span><span class="ST6">\n</span><span class="string">3. Atrás</span><span class="string">&quot;</span>);
+                        System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">------------------------------------------------</span><span class="ST6">\n</span><span class="string">Elige una opción: </span><span class="string">&quot;</span>);
+                        <span class="literal">int</span> opcionTiendas = Integer.<span class="ST7">parseInt</span>(entrada.nextLine());
+                        <span class="literal">switch</span> (opcionTiendas) {
+                            <span class="literal">case</span> 1: <span class="comment">// Elegir entre tiendas registradas</span>
+                                System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">Escriba el nombre de la Tienda Registrada a la que quiere cambiar: </span><span class="string">&quot;</span>);
+                                String tiendaCambio = entrada.nextLine();
+                                <span class="literal">try</span> {
+                                    tiendaSeleccionada = <span class="ST7">buscarTienda</span>(tiendasRegistradas, tiendaCambio);
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">Se ha cambiado a la tienda </span><span class="string">&quot;</span> + tiendaSeleccionada.getNombreTienda());
+                                    contadorEmple = tiendaSeleccionada.getListaEmpleados().size(); <span class="comment">// Ponemos el contador de empleados con el tamaño de la tienda seleccionada.</span>
+                                } <span class="literal">catch</span> (NullPointerException e) {
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: El nombre indicado no se encuentra en las tiendas registrados, se seleccionará la tienda por defecto del sistema.</span><span class="string">&quot;</span>);
+                                    tiendaSeleccionada = tiendasRegistradas.get(0);
+                                    contadorEmple = tiendasRegistradas.get(0).getListaEmpleados().size(); <span class="comment">// Ponemos el contador de empleados con el tamaño de la tienda por defecto.</span>
+                                }
+                                <span class="literal">break</span>;
+                            <span class="literal">case</span> 2: <span class="comment">// Registrar nueva tienda</span>
+                                System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">Escribe el nombre de la Tienda nueva: </span><span class="string">&quot;</span>);
+                                String nombreNuevo = entrada.nextLine();
+
+                                System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe los departamentos que quieras añadir a la Tienda:</span><span class="ST6">\n</span><span class="string">&quot;</span>);
+                                LinkedList&lt;Departamento&gt; departNuevo = <span class="literal">new</span> LinkedList&lt;&gt;();
+                                String departNombreNuevo = <span class="string">&quot;&quot;</span>;
+                                <span class="literal">int</span> numDeparts = 0; <span class="comment">// Contador de departamentos para evitar no meter ningún departamento</span>
+                                <span class="literal">do</span> {
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Nuevo Departamento (Escribe &#39;salir&#39; para dejar de añadir): </span><span class="string">&quot;</span>);
+                                    departNombreNuevo = entrada.nextLine();
+                                    <span class="literal">if</span> (departNombreNuevo.equalsIgnoreCase(<span class="string">&quot;</span><span class="string">salir</span><span class="string">&quot;</span>)){
+                                        <span class="literal">if</span>(numDeparts == 0){
+                                            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Debe haber al menos 1 departamento como mínimo.</span><span class="string">&quot;</span>);
+                                        } <span class="literal">else</span> {
+                                            numDeparts = -1;
+                                        }
+                                    } <span class="literal">else</span> {
+                                        departNuevo.add(<span class="literal">new</span> Departamento(<span class="literal">new</span> LinkedList&lt;&gt;(), departNombreNuevo));
+                                        numDeparts++;
+                                    }
+                                    
+                                } <span class="literal">while</span> (numDeparts != -1);
+
+                                <span class="literal">try</span> {
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">Escribe el nombre del Gerente: </span><span class="string">&quot;</span>);
+                                    String nombre = entrada.nextLine();
+                                    <span class="literal">do</span> {
+                                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">Escribe la direccion del Gerente: </span><span class="string">&quot;</span>);
+                                        System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Debe escribirlo con el formato </span><span class="ST6">\&quot;</span><span class="string">C/NombreCalle NumeroCalle</span><span class="ST6">\&quot;</span><span class="string">: </span><span class="string">&quot;</span>);
+                                        direccion = entrada.nextLine();
+                                        <span class="comment">// Comprobamos el formato de la dirección con una Expresión Regular</span>
+                                        p = Pattern.<span class="ST7">compile</span>(patronDir);
+                                        m = p.matcher(direccion);
+                                        <span class="literal">if</span> (m.matches()) {
+                                        } <span class="literal">else</span> {
+                                            System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: La dirección no tiene el formato correcto.</span><span class="string">&quot;</span>);
+                                        }
+                                    } <span class="literal">while</span> (!m.matches());
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe el salario del Gerente: </span><span class="string">&quot;</span>);
+                                    <span class="literal">double</span> salario = Double.<span class="ST7">parseDouble</span>(entrada.nextLine());
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Escribe el tipo de gestión que realiza en el Departamento el Gerente: </span><span class="string">&quot;</span>);
+                                    String gestion = entrada.nextLine();
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">Elige el Departamento que gestiona el Gerente: </span><span class="string">&quot;</span>);
+                                    <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; departNuevo.size(); i++) {
+                                        System.<span class="ST5">out</span>.println(i + 1 + <span class="string">&quot;</span><span class="string">. </span><span class="string">&quot;</span> + departNuevo.get(i).getNombreDepart());
+                                    }
+                                    System.<span class="ST5">out</span>.print(<span class="string">&quot;</span><span class="string">Elija el número de la opción: </span><span class="string">&quot;</span>);
+                                    <span class="literal">int</span> depart = Integer.<span class="ST7">parseInt</span>(entrada.nextLine());
+                                    <span class="literal">if</span> (depart &lt; 0 &amp;&amp; depart &gt; tiendaSeleccionada.getDepartamentosTienda().size()) {
+                                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Opción no válida.</span><span class="string">&quot;</span>);
+                                    } <span class="literal">else</span> {
+                                        HashMap&lt;Integer, Empleado&gt; listaEmpleados = <span class="literal">new</span> HashMap&lt;&gt;();
+                                        Tienda tiendaNueva = <span class="literal">new</span> Tienda(nombreNuevo, listaEmpleados, departNuevo, <span class="literal">new</span> Gerente(nombre, direccion, salario, <span class="literal">new</span> LinkedList&lt;&gt;(), tiendaSeleccionada.getDepartamentosTienda().get(depart - 1), gestion));
+                                        tiendasRegistradas.add(tiendaNueva);
+                                        tiendaSeleccionada = tiendaNueva; <span class="comment">// Apuntamos a la memoria de la nueva tienda registrada.</span>
+                                    }
+                                    
+                                    contadorEmple = tiendaSeleccionada.getListaEmpleados().size(); <span class="comment">//Ponemos el contador de Empleados al numero de empleados de cada tienda</span>
+                                    <span class="literal">break</span>;
+                                } <span class="literal">catch</span> (InputMismatchException e) {
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Los datos introducidos no son del tipo esperado.</span><span class="string">&quot;</span>);
+                                } <span class="literal">catch</span> (NumberFormatException e) {
+                                    System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Los datos numéricos tienen el formato incorrecto.</span><span class="string">&quot;</span>);
+                                }
+
+                        }
+                        <span class="literal">break</span>;
+                    <span class="literal">case</span> 6:
+                        <span class="comment">// Ver cantidad empleados</span>
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">EMPLEADOS DE </span><span class="string">&quot;</span> + tiendaSeleccionada.getNombreTienda());
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">----------------------------------------------</span><span class="string">&quot;</span>);
+                        <span class="literal">int</span> numEmpSala = 0, numEmpAlm = 0, numEnc = 0, numGen = 1; <span class="comment">// Se da por hecho que hay al menos un Gerente. ya que es obligatorio tener uno por tienda</span>
+                        <span class="comment">// Cuento los empleados según su clase</span>
+                        <span class="literal">for</span>(<span class="literal">int</span> i = 0; i&lt;contadorEmple;i++){
+                            <span class="literal">if</span>(tiendaSeleccionada.getListaEmpleados().get(i) <span class="literal">instanceof</span> EmpleadoSala){
+                                numEmpSala++;
+                            } <span class="literal">else</span> <span class="literal">if</span>(tiendaSeleccionada.getListaEmpleados().get(i) <span class="literal">instanceof</span> EmpleadoAlmacen){
+                                numEmpAlm++;
+                            } <span class="literal">else</span> <span class="literal">if</span>(tiendaSeleccionada.getListaEmpleados().get(i) <span class="literal">instanceof</span> Gerente){
+                                numGen++;
+                            } <span class="literal">else</span> <span class="literal">if</span>(tiendaSeleccionada.getListaEmpleados().get(i) <span class="literal">instanceof</span> Encargado){
+                                numEnc++;
+                            } 
+                        }
+                        System.<span class="ST5">out</span>.printf(<span class="string">&quot;</span><span class="string">%20s %-15d</span><span class="ST6">\n</span><span class="string">%15s %-15d</span><span class="ST6">\n</span><span class="string">%15s %-15d</span><span class="ST6">\n</span><span class="string">%15s %-10s</span><span class="ST6">\n</span><span class="string">%15s %-15d</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Empleados trabajando en Sala:</span><span class="string">&quot;</span>, numEmpSala,<span class="string">&quot;</span><span class="string">Empleados trabajando en Almacen:</span><span class="string">&quot;</span>, numEmpAlm, <span class="string">&quot;</span><span class="string">Encargados en la tienda:</span><span class="string">&quot;</span>, numEnc, <span class="string">&quot;</span><span class="string">Gerente principal de la Tienda:</span><span class="string">&quot;</span>, tiendaSeleccionada.getGerenteTienda().getNombre(), <span class="string">&quot;</span><span class="string">Gerentes en la Tienda:</span><span class="string">&quot;</span>, numGen);
+                        System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">----------------------------------------------</span><span class="string">&quot;</span>);
+                        <span class="literal">break</span>;
+                    <span class="literal">default</span>:
+                        <span class="literal">break</span>;
+                }
+            } <span class="literal">catch</span> (NumberFormatException e) {
+                System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: El formato de la respuesta es incorrecto.</span><span class="string">&quot;</span>);
+            } <span class="literal">catch</span> (NullPointerException e) {
+                System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Ha habido un fallo inesperado al intentar recoger información.</span><span class="string">&quot;</span>);
+            } <span class="literal">catch</span> (ArrayIndexOutOfBoundsException e) {
+                System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string">[ERROR]: Ha habido un fallo inesperado al intentar recoger información.</span><span class="string">&quot;</span>);
+            }
+        } <span class="literal">while</span> (<span class="literal">true</span>);
+    }
+
+    <span class="comment">// Método para buscar empleados y gerentes por su nombre</span>
+    <span class="literal">public</span> <span class="literal">static</span> Empleado <span class="ST3">buscarEmpleado</span>(Tienda tienda, String nombre) {
+        Empleado existe = <span class="literal">null</span>;
+        <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; tienda.getListaEmpleados().size(); i++) {
+            Empleado aux = tienda.getListaEmpleados().get(i);
+            <span class="literal">if</span> (aux.getNombre().equals(nombre) == <span class="literal">true</span>) {
+                existe = aux;
+            } <span class="literal">else</span> <span class="literal">if</span> (nombre.equals(tienda.getGerenteTienda().getNombre())) {
+                existe = tienda.getGerenteTienda();
+            }
+        }
+        <span class="literal">return</span> existe;
+    }
+
+    <span class="comment">// Método para buscar tiendas por su nombre</span>
+    <span class="literal">public</span> <span class="literal">static</span> Tienda <span class="ST3">buscarTienda</span>(LinkedList&lt;Tienda&gt; tiendasRegistradas, String nombre) {
+        Tienda existe = <span class="literal">null</span>;
+        <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; tiendasRegistradas.size(); i++) {
+            Tienda aux = tiendasRegistradas.get(i);
+            <span class="literal">if</span> (aux.getNombreTienda().equals(nombre) == <span class="literal">true</span>) {
+                existe = aux;
+            }
+        }
+        <span class="literal">return</span> existe;
+    }
+
+}
+<span class="comment">// EJECUCIÓN DEL MAIN</span>
+<span class="comment">// Por ejemplo, creamos un Empleado de Almacen y mostramos a todos los Empleados</span>
+<span class="comment">/*</span>
+<span class="comment">MENÚ PRINCIPAL de ElCorteIngles</span>
+<span class="comment">==========================================</span>
+<span class="comment">1) Abrir Gestión de Personal</span>
+<span class="comment">2) Asignar tareas por Departamento</span>
+<span class="comment">3) Asignar tareas por Empleado</span>
+<span class="comment">4) Monitorear Trabajadores</span>
+<span class="comment">5) Cambiar de Tienda</span>
+<span class="comment">6) Ver cantidad de personal</span>
+<span class="comment">---------------------------------</span>
+<span class="comment">0) Salir</span>
+<span class="comment">==========================================</span>
+<span class="comment">Elige una opción: 1</span>
+
+<span class="comment">Escribe el nombre del Empleado: Jesus</span>
+<span class="comment">Escribe la direccion del Empleado: </span>
+<span class="comment">Debe escribirlo con el formato &quot;C/NombreCalle NumeroCalle&quot;: C/Ejemplo 1</span>
+<span class="comment">Escribe el salario del Empleado: 1200</span>
+<span class="comment">Escribe el puesto del Empleado: Caja</span>
+
+<span class="comment">TABLA CON DATOS BÁSICOS DE LOS EMPLEADOS</span>
+<span class="comment">====================================================</span>
+<span class="comment">         NOMBRE       DIRECCION         SALARIO</span>
+<span class="comment">====================================================</span>
+<span class="comment">          Marta       C/Lorca 6          1100.0€</span>
+<span class="comment">         Carlos     C/Genesis 6           950.0€</span>
+<span class="comment">         Andrea    C/DaVinci 12          1200.0€</span>
+<span class="comment">         Miguel       C/Dali 45          1850.0€</span>
+<span class="comment">          Lucia        C/Gogh 4          1200.0€</span>
+<span class="comment">          David     C/Pollock 2          1100.0€</span>
+<span class="comment">        Beatriz    C/Vermeer 10          1100.0€</span>
+<span class="comment">          Jesus     C/Ejemplo 1          1200.0€</span>
+<span class="comment">           Luis     C/Picasso 5          2100.0€</span>
+<span class="comment">====================================================</span>
+
+<span class="comment">LISTA CON LOS DATOS DE LOS EMPLEADOS</span>
+<span class="comment">El empleado Marta con dirección C/Lorca 6 que cobra 1100.0 € trabaja en el puesto de Caja</span>
+<span class="comment">El empleado Carlos con dirección C/Genesis 6 que cobra 950.0 € trabaja en el puesto de Reponedor</span>
+<span class="comment">El empleado Andrea con dirección C/DaVinci 12 que cobra 1200.0 € trabaja en el puesto de Seguridad</span>
+<span class="comment">El empleado Miguel con dirección C/Dali 45 que cobra 1850.0 € gestiona el departamento Personal</span>
+<span class="comment">El empleado Lucia con dirección C/Gogh 4 que cobra 1200.0 € trabaja en el Almacén: Almacen A</span>
+<span class="comment">El empleado David con dirección C/Pollock 2 que cobra 1100.0 € trabaja en el Almacén: Almacen A</span>
+<span class="comment">El empleado Beatriz con dirección C/Vermeer 10 que cobra 1100.0 € trabaja en el Almacén: Almacen A</span>
+<span class="comment">El empleado Jesus con dirección C/Ejemplo 1 que cobra 1200.0 € trabaja en el puesto de Caja</span>
+<span class="comment">El empleado Luis con dirección C/Picasso 5 que cobra 2100.0 € gestiona el departamento Compras y se encarga de control de Stock</span>
+
+
+<span class="comment">MENÚ PRINCIPAL de ElCorteIngles</span>
+<span class="comment">==========================================</span>
+<span class="comment">1) Abrir Gestión de Personal</span>
+<span class="comment">2) Asignar tareas por Departamento</span>
+<span class="comment">3) Asignar tareas por Empleado</span>
+<span class="comment">4) Monitorear Trabajadores</span>
+<span class="comment">5) Cambiar de Tienda</span>
+<span class="comment">6) Ver cantidad de personal</span>
+<span class="comment">---------------------------------</span>
+<span class="comment">0) Salir</span>
+<span class="comment">==========================================</span>
+<span class="comment">Elige una opción: 0</span>
+<span class="comment">¡Hasta luego!</span>
+<span class="comment">BUILD SUCCESSFUL (total time: 28 seconds)</span>
+<span class="comment">*/</span>
+
+</pre></body>
+</html>

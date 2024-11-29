@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../img/java.png" type="image/x-icon">
+    <title>Código Empleado</title>
+</head>
+<body>
+    <nav>
+        <ol>
+            <li><a href="../../indice.html">ÍNDICE</a></li>
+            <li><a href="#">CÓDIGO JAVA</a>
+                <ol>
+                    <li><a href="codigo_tienda.html">Clase Tienda</a></li>
+                    <li><a href="codigo_almacenes.html">Clase Almacen</a></li>
+                    <li><a href="codigo_empleado.html">Clase Empleado</a></li>
+                    <li><a href="codigo_sala.html">Clase EmpleadoSala</a></li>
+                    <li><a href="codigo_almacen.html">Clase EmpleadoAlmacen</a></li>
+                    <li><a href="codigo_gerente.html">Clase Gerente</a></li>
+                    <li><a href="codigo_encargado.html">Clase Encargado</a></li>
+                    <li><a href="codigo_depart.html">Clase Departamento</a></li>
+                    <li><a href="codigo_tarea.html">Clase Tarea</a></li>
+                    <li><a href="codigo_main.html">Ejecución del main</a></li>
+                </ol>
+            </li>
+            <li><a href="../pagina_esquema/esquema.html">ESQUEMA DE CLASES</a></li>
+        </ol>
+    </nav>
+    <main>
+        <h1>CLASE EMPLEADO</h1>
+        <p>Esta es la clase base de la que heredan el resto de subclases. He decidido hacerla abstracta.</p>
+        <!--
+        <ul>
+            <li><a href="code/Empleado.html">Código exportado de NetBeans</a></li>
+        </ul>
+        -->
+        <div>
+            <pre>
+                
+                <span class="literal">import</span> java.util.LinkedList;
+                <span class="literal">import</span> java.util.Objects;
+                <span class="comment">/**</span>
+                <span class="comment"> *</span>
+                <span class="comment"> * </span><span class="ST1">@author</span> <span class="comment">alumnom</span>
+                <span class="comment">*/</span>
+                <span class="literal">public</span> <span class="literal">abstract</span> <span class="literal">class</span> <span class="ST2">Empleado</span> {
+                    <span class="comment">// ATRIBUTOS</span>
+                    <span class="literal">private</span> String <span class="ST3">nombre</span>;
+                    <span class="literal">private</span> String <span class="ST3">direccion</span>;
+                    <span class="literal">private</span> <span class="literal">double</span> <span class="ST3">salario</span>;
+                    <span class="literal">private</span> LinkedList&lt;Tarea&gt; <span class="ST3">tareas</span>;
+
+                    <span class="comment">// GETTERS Y SETTERS</span>
+                    <span class="literal">public</span> String <span class="ST2">getNombre</span>() {
+                        <span class="literal">return</span> <span class="ST3">nombre</span>;
+                    }
+
+                    <span class="literal">public</span> <span class="literal">void</span> <span class="ST2">setNombre</span>(String nombre) {
+                        <span class="literal">this</span>.<span class="ST3">nombre</span> = nombre;
+                    }
+
+                    <span class="literal">public</span> String <span class="ST2">getDireccion</span>() {
+                        <span class="literal">return</span> <span class="ST3">direccion</span>;
+                    }
+
+                    <span class="literal">public</span> <span class="literal">void</span> <span class="ST2">setDireccion</span>(String direccion) {
+                        <span class="literal">this</span>.<span class="ST3">direccion</span> = direccion;
+                    }
+
+                    <span class="literal">public</span> <span class="literal">double</span> <span class="ST2">getSalario</span>() {
+                        <span class="literal">return</span> <span class="ST3">salario</span>;
+                    }
+
+                    <span class="literal">public</span> <span class="literal">void</span> <span class="ST2">setSalario</span>(<span class="literal">double</span> salario) {
+                        <span class="literal">this</span>.<span class="ST3">salario</span> = salario;
+                    }
+                    
+                    <span class="literal">public</span> LinkedList&lt;Tarea&gt; <span class="ST2">getTareas</span>() {
+                        <span class="literal">return</span> <span class="ST3">tareas</span>;
+                    }
+                    
+                    <span class="literal">public</span> <span class="literal">void</span> <span class="ST2">setTareas</span>(LinkedList&lt;Tarea&gt; tareas){
+                        <span class="literal">this</span>.<span class="ST3">tareas</span> = tareas;
+                    }
+                    
+                    <span class="comment">// CONSTRUCTOR COMPLETO</span>
+                    <span class="literal">public</span> <span class="ST2">Empleado</span>(String nombre, String direccion, <span class="literal">double</span> salario, LinkedList&lt;Tarea&gt; tareas) {
+                        <span class="literal">this</span>.<span class="ST3">nombre</span> = nombre;
+                        <span class="literal">this</span>.<span class="ST3">direccion</span> = direccion;
+                        <span class="literal">this</span>.<span class="ST3">salario</span> = salario;
+                        <span class="literal">this</span>.<span class="ST3">tareas</span> = tareas;
+                    }
+
+                    <span class="comment">// CONSTRUCTOR VACIO</span>
+                    <span class="literal">public</span> <span class="ST2">Empleado</span>() {
+                        <span class="ST3">nombre</span> = <span class="string">&quot;&quot;</span>;
+                        <span class="ST3">direccion</span> = <span class="string">&quot;&quot;</span>;
+                        <span class="ST3">salario</span> = 0;
+                        <span class="ST3">tareas</span> = <span class="literal">new</span> LinkedList&lt;&gt;();
+                    }
+                    
+                    <span class="comment">// CONSTRUCTOR DE COPIA</span>
+                    <span class="literal">public</span> <span class="ST2">Empleado</span>(Empleado p){
+                        p.setNombre(p.getNombre());
+                        p.setDireccion(p.getDireccion());
+                        p.setSalario(p.getSalario());
+                    }
+                    
+                    <span class="comment">// HASHCODE</span>
+                    @Override
+                    <span class="literal">public</span> <span class="literal">int</span> <span class="ST2">hashCode</span>() {
+                        <span class="literal">int</span> hash;
+                        hash = Objects.<span class="ST4">hash</span>(<span class="ST3">n</span><span class="ST3">ombre</span>, <span class="ST3">d</span><span class="ST3">ireccion</span>, <span class="ST3">s</span><span class="ST3">alario</span>);
+                        <span class="literal">return</span> hash;
+                    }
+
+                    <span class="comment">// EQUALS</span>
+                    @Override
+                    <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST2">equals</span>(Object obj) {
+                        <span class="literal">if</span> (<span class="literal">this</span> == obj) {
+                            <span class="literal">return</span> <span class="literal">true</span>;
+                        }
+                        <span class="literal">if</span> (obj == <span class="literal">null</span>) {
+                            <span class="literal">return</span> <span class="literal">false</span>;
+                        }
+                        <span class="literal">if</span> (getClass() != obj.getClass()) {
+                            <span class="literal">return</span> <span class="literal">false</span>;
+                        }
+                        <span class="literal">final</span> Empleado other = (Empleado) obj;
+                        <span class="literal">if</span> (Double.<span class="ST4">doubleToLongBits</span>(<span class="literal">t</span><span class="literal">his</span>.<span class="ST3">salario</span>) != Double.<span class="ST4">doubleToLongBits</span>(other.<span class="ST3">salario</span>)) {
+                            <span class="literal">return</span> <span class="literal">false</span>;
+                        }
+                        <span class="literal">if</span> (!Objects.<span class="ST4">equals</span>(<span class="literal">t</span><span class="literal">his</span>.<span class="ST3">nombre</span>, other.<span class="ST3">nombre</span>)) {
+                            <span class="literal">return</span> <span class="literal">false</span>;
+                        }
+                        <span class="literal">return</span> Objects.<span class="ST4">equals</span>(<span class="literal">t</span><span class="literal">his</span>.<span class="ST3">direccion</span>, other.<span class="ST3">direccion</span>);
+                    }
+                    
+                    <span class="comment">// TOSTRING</span>
+                    @Override
+                    <span class="literal">public</span> String <span class="ST2">toString</span>(){
+                        <span class="literal">return</span> <span class="string">&quot;</span><span class="string">El empleado </span><span class="string">&quot;</span> + <span class="ST3">nombre</span> + <span class="string">&quot;</span><span class="string"> con dirección </span><span class="string">&quot;</span> + <span class="ST3">direccion</span> + <span class="string">&quot;</span><span class="string"> que cobra </span><span class="string">&quot;</span> + <span class="ST3">salario</span> + <span class="string">&quot;</span><span class="string"> €</span><span class="string">&quot;</span>;
+                    }
+                    
+                    <span class="comment">// Otros métodos</span>
+                    <span class="literal">public</span> <span class="literal">abstract</span> String <span class="ST2">trabajo</span>();
+                }
+
+              </pre>
+        </div>
+    </main>
+    <footer>
+        <ol>
+            <li>1º DAM</li>
+            <li>LUIS MIGUEL SÁNCHEZ VEGA</li>
+            <li>PROGRAMACIÓN</li>
+        </ol>
+    </footer>
+</body>
+</html>

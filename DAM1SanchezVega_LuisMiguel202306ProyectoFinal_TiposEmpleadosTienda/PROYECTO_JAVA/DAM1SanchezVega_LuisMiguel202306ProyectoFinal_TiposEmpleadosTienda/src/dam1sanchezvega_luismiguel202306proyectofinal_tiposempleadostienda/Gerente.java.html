@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Gerente.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #404040; background-color: #e9e8e2; font-family: monospace}
+.ST4 {font-family: monospace; font-style: italic}
+.ST1 {color: #969696; font-family: monospace; font-weight: bold}
+.ST2 {font-family: monospace; font-weight: bold}
+.comment {color: #969696}
+.ST0 {color: #287bde}
+.ST3 {color: #ce54b8}
+.string {color: #1e9347}
+.literal {color: #336bdd}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">/media/alumnom/PENDRIVE/DAM1SanchezVega_LuisMiguel202306ProyectoFinal_TiposEmpleadosTienda/PROYECTO_JAVA/DAM1SanchezVega_LuisMiguel202306ProyectoFinal_TiposEmpleadosTienda/src/dam1sanchezvega_luismiguel202306proyectofinal_tiposempleadostienda/Gerente.java</td></tr></table>
+<pre>
+<span class="comment">/*</span>
+<span class="comment"> * Click </span><span class="ST0">nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt</span><span class="comment"> to change this license</span>
+<span class="comment"> * Click </span><span class="ST0">nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java</span><span class="comment"> to edit this template</span>
+<span class="comment"> */</span>
+<span class="literal">package</span> dam1sanchezvega_luismiguel202306proyectofinal_tiposempleadostienda;
+
+<span class="literal">import</span> java.util.LinkedList;
+<span class="literal">import</span> java.util.Objects;
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST1">@author</span> <span class="comment">alumnom</span>
+ <span class="comment">*/</span>
+<span class="literal">public</span> <span class="literal">class</span> <span class="ST2">Gerente</span> <span class="literal">extends</span> Encargado{
+    <span class="comment">// ATRIBUTOS</span>
+    <span class="literal">private</span> String <span class="ST3">tipoGestion</span>; <span class="comment">//Gestion de comercio, stock y atencion al cliente</span>
+
+    <span class="comment">// GETTERS Y SETTERS</span>
+    <span class="literal">public</span> String <span class="ST2">getTipoGestion</span>() {
+        <span class="literal">return</span> <span class="ST3">tipoGestion</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">void</span> <span class="ST2">setTipoGestion</span>(String tipoGestion) {
+        <span class="literal">this</span>.<span class="ST3">tipoGestion</span> = tipoGestion;
+    }
+    
+    <span class="comment">// CONSTRUCTOR COMPLETO</span>
+
+    <span class="literal">public</span> <span class="ST2">Gerente</span>(String nombre, String direccion, <span class="literal">double</span> salario, LinkedList&lt;Tarea&gt; tareas, Departamento departamento, String tipoGestion) {
+        <span class="literal">super</span>(nombre, direccion, salario, tareas, departamento);
+        <span class="literal">this</span>.<span class="ST3">tipoGestion</span> = tipoGestion;
+    }
+
+    <span class="comment">// CONSTRUCTOR VACIO</span>
+    <span class="literal">public</span> <span class="ST2">Gerente</span>() {
+        <span class="literal">super</span>();
+        <span class="ST3">tipoGestion</span> = <span class="string">&quot;&quot;</span>;
+    }
+
+    <span class="comment">// CONSTRUCTOR DE COPIA</span>
+    <span class="literal">public</span> <span class="ST2">Gerente</span>(Gerente p) {
+        <span class="literal">super</span>(p);
+        p.setTipoGestion(<span class="ST3">tipoGestion</span>);
+    }
+    
+    <span class="comment">// HASHCODE</span>
+    @Override
+    <span class="literal">public</span> <span class="literal">int</span> <span class="ST2">hashCode</span>() {
+        <span class="literal">super</span>.hashCode();
+        <span class="literal">int</span> hash;
+        hash = Objects.<span class="ST4">hash</span>(<span class="ST3">t</span><span class="ST3">ipoGestion</span>);
+        <span class="literal">return</span> hash;
+    }
+    
+    <span class="comment">// EQUALS</span>
+    @Override
+    <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST2">equals</span>(Object obj){
+        <span class="literal">if</span> (<span class="literal">this</span> == obj) {
+            <span class="literal">return</span> <span class="literal">true</span>;
+        }
+        <span class="literal">if</span> (obj == <span class="literal">null</span>) {
+            <span class="literal">return</span> <span class="literal">false</span>;
+        }
+        <span class="literal">if</span> (getClass() != obj.getClass()) {
+            <span class="literal">return</span> <span class="literal">false</span>;
+        }
+        <span class="literal">final</span> Gerente other = (Gerente) obj;
+        <span class="literal">return</span> Objects.<span class="ST4">equals</span>(<span class="literal">t</span><span class="literal">his</span>.<span class="ST3">tipoGestion</span>, other.<span class="ST3">tipoGestion</span>);
+    }
+
+    <span class="comment">// TOSTRING</span>
+    @Override
+    <span class="literal">public</span> String <span class="ST2">toString</span>() {
+        <span class="literal">return</span> <span class="literal">super</span>.toString() + <span class="string">&quot;</span><span class="string"> y se encarga de </span><span class="string">&quot;</span> + <span class="ST3">tipoGestion</span>;
+    }
+    
+    <span class="comment">// Otros métodos</span>
+    @Override
+    <span class="literal">public</span> String <span class="ST2">trabajo</span>(){
+        String trabajo = <span class="string">&quot;</span><span class="string">El gerente </span><span class="string">&quot;</span> + getNombre() + <span class="string">&quot;</span><span class="string"> está gestionando el </span><span class="string">&quot;</span> + <span class="ST3">tipoGestion</span> + <span class="string">&quot;</span><span class="string"> de la tienda con las tareas por realizar: </span><span class="string">&quot;</span> + getTareas();
+        <span class="literal">return</span> trabajo;
+    }
+}
+
+</pre></body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Almacen.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #404040; background-color: #e9e8e2; font-family: monospace}
+.ST4 {font-family: monospace; font-style: italic}
+.ST1 {color: #969696; font-family: monospace; font-weight: bold}
+.ST2 {font-family: monospace; font-weight: bold}
+.comment {color: #969696}
+.ST0 {color: #287bde}
+.ST3 {color: #ce54b8}
+.string {color: #1e9347}
+.literal {color: #336bdd}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">/media/alumnom/PENDRIVE/DAM1SanchezVega_LuisMiguel_Ej059950_ProyTiposEmpleadosTienda/PROYECTO_JAVA/DAM1SanchezVega_LuisMiguel_Ej059950_ProyTiposEmpleadosTienda/src/main/java/com/mycompany/dam1sanchezvega_luismiguel_ej059950_proytiposempleadostienda/Almacen.java</td></tr></table>
+<pre>
+<span class="comment">/*</span>
+<span class="comment"> * Click </span><span class="ST0">nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt</span><span class="comment"> to change this license</span>
+<span class="comment"> * Click </span><span class="ST0">nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java</span><span class="comment"> to edit this template</span>
+<span class="comment"> */</span>
+<span class="literal">package</span> com.mycompany.dam1sanchezvega_luismiguel_ej059950_proytiposempleadostienda;
+
+<span class="literal">import</span> java.util.HashMap;
+<span class="literal">import</span> java.util.Objects;
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST1">@author</span> <span class="comment">ruisumi</span>
+ <span class="comment">*/</span>
+<span class="literal">public</span> <span class="literal">class</span> <span class="ST2">Almacen</span> {
+    <span class="comment">// ATRIBUTOS</span>
+    <span class="literal">private</span> Gerente <span class="ST3">gerenteAlmacen</span>;
+    <span class="literal">private</span> <span class="literal">char</span> <span class="ST3">letraIdentificativa</span>;
+
+    <span class="comment">// GETTERS Y SETTERS</span>
+    <span class="literal">public</span> Gerente <span class="ST2">getGerenteAlmacen</span>() {
+        <span class="literal">return</span> <span class="ST3">gerenteAlmacen</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">void</span> <span class="ST2">setGerenteAlmacen</span>(Gerente gerenteAlmacen) {
+        <span class="literal">this</span>.<span class="ST3">gerenteAlmacen</span> = gerenteAlmacen;
+    }
+    
+    <span class="literal">public</span> <span class="literal">char</span> <span class="ST2">getLetraIdentificativa</span>() {
+        <span class="literal">return</span> <span class="ST3">letraIdentificativa</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">void</span> <span class="ST2">setLetraIdentificativa</span>(<span class="literal">char</span> letraIdentificativa) {
+        <span class="literal">this</span>.<span class="ST3">letraIdentificativa</span> = letraIdentificativa;
+    }
+
+    <span class="comment">// CONSTRUCTOR COMPLETO</span>
+    <span class="literal">public</span> <span class="ST2">Almacen</span>(Gerente gerenteAlmacen, <span class="literal">char</span> letraIdentificativa) {
+        <span class="literal">this</span>.<span class="ST3">gerenteAlmacen</span> = gerenteAlmacen;
+        <span class="literal">this</span>.<span class="ST3">letraIdentificativa</span> = letraIdentificativa;
+    }
+    
+    <span class="comment">// CONSTRUCTOR VACIO</span>
+    <span class="literal">public</span> <span class="ST2">Almacen</span>(){
+        <span class="ST3">gerenteAlmacen</span> = <span class="literal">new</span> Gerente();
+        <span class="ST3">letraIdentificativa</span> = <span class="string">&#39;</span> <span class="string">&#39;</span>;
+    }
+    
+    <span class="comment">// CONSTRUCTOR DE COPIA</span>
+    <span class="literal">public</span> <span class="ST2">Almacen</span>(Almacen a){
+        a.setGerenteAlmacen(<span class="ST3">gerenteAlmacen</span>);
+        a.setLetraIdentificativa(<span class="ST3">letraIdentificativa</span>);
+    }
+
+    <span class="comment">// HASHCODE</span>
+    @Override
+    <span class="literal">public</span> <span class="literal">int</span> <span class="ST2">hashCode</span>() {
+        <span class="literal">int</span> hash = Objects.<span class="ST4">hash</span>(<span class="ST3">g</span><span class="ST3">erenteAlmacen</span>, <span class="ST3">l</span><span class="ST3">etraIdentificativa</span>);
+        <span class="literal">return</span> hash;
+    }
+
+    <span class="comment">// EQUALS</span>
+    @Override
+    <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST2">equals</span>(Object obj) {
+        <span class="literal">if</span> (<span class="literal">this</span> == obj) {
+            <span class="literal">return</span> <span class="literal">true</span>;
+        }
+        <span class="literal">if</span> (obj == <span class="literal">null</span>) {
+            <span class="literal">return</span> <span class="literal">false</span>;
+        }
+        <span class="literal">if</span> (getClass() != obj.getClass()) {
+            <span class="literal">return</span> <span class="literal">false</span>;
+        }
+        <span class="literal">final</span> Almacen other = (Almacen) obj;
+        <span class="literal">if</span> (<span class="literal">this</span>.<span class="ST3">letraIdentificativa</span> != other.<span class="ST3">letraIdentificativa</span>) {
+            <span class="literal">return</span> <span class="literal">false</span>;
+        }
+        <span class="literal">return</span> Objects.<span class="ST4">equals</span>(<span class="literal">t</span><span class="literal">his</span>.<span class="ST3">gerenteAlmacen</span>, other.<span class="ST3">gerenteAlmacen</span>);
+    }
+    
+
+    <span class="comment">// TOSTRING</span>
+    @Override
+    <span class="literal">public</span> String <span class="ST2">toString</span>() {
+        <span class="literal">return</span> <span class="string">&quot;</span><span class="string">Almacen </span><span class="string">&quot;</span> + <span class="ST3">letraIdentificativa</span>;
+    }
+}
+
+</pre></body>
+</html>
