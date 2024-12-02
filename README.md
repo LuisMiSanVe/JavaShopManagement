@@ -23,15 +23,15 @@ This is the class diagram:
 
 ## 📂 Files
 The different classes are:
-- [Shop](): The main class in the project. It contains the list of employees, departments, and the manager.
-- [Department](): Each department can have a name and a list of assigned tasks.
-- [Warehouse](): Each warehouse has a unique letter and a manager.
-- [Employee](): The most basic employee class. It has only general attributes and is abstract.
-- [EmployeeSalesFloor](): Represents the employee who works publicly, physically in the shop.
-- [EmployeeWarehouse](): Represents the employees responsible for maintaining the warehouse of the shop.
-- [Supervisor](): Represents the employee in charge of a whole department.
-- [Manager](): Represents the person in charge of the shop, the boss.
-- [Task](): Represents the tasks that can be assigned to individual employees or to an entire department.
+- [Shop](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Shop.java): The main class in the project. It contains the list of employees, departments, and the manager.
+- [Department](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Department.java): Each department can have a name and a list of assigned tasks.
+- [Warehouse](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Warehouse.java): Each warehouse has a unique letter and a manager.
+- [Employee](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Employee.java): The most basic employee class. It has only general attributes and is abstract.
+- [EmployeeSalesFloor](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/EmployeeSalesFloor.java): Represents the employee who works publicly, physically in the shop.
+- [EmployeeWarehouse](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/EmployeeWarehouse.java): Represents the employees responsible for maintaining the warehouse of the shop.
+- [Supervisor](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Supervisor.java): Represents the employee in charge of a whole department.
+- [Manager](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Manager.java): Represents the person in charge of the shop, the boss.
+- [Task](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Task.java): Represents the tasks that can be assigned to individual employees or to an entire department.
 
 ## 💻 Technologies used
 - Programming Language: [Java](https://www.java.com/)
