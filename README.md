@@ -1,40 +1,40 @@
-> [See in spanish/Ver en español]()
+> [Ver en ingles/See in english](https://github.com/LuisMiSanVe/JavaShopManagement/tree/main)
 
-# 📊 Shop Management Java Console Program
+# 📊 Programa de Consola de Java para Administración de Tienda
 
 [![image](https://img.shields.io/badge/apache%20netbeans-1B6AC6?style=for-the-badge&logo=apache%20netbeans%20IDE&logoColor=white)](https://netbeans.apache.org/front/main/index.html)
 [![image](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
 
-This project consists of a console program that allows you to manage a shop and its employees.  
-It has a variety of object types: the Shop itself, Employees and other variants that inherit from it, Departments and Warehouses.  
-You can register all the shops you want and manage them separately, each with its employees, positions, and assigned tasks.  
-The Employee management section has a simple graphical interface menu.
+Este proyecto consiste en un programa de consola que te permite administrar una tienda y sus empleados.\
+Tiene varios tipo de objetos: la propia Tienda, los Empleados y otras variantes que heredan del mismo, Departamentos y Almacenes.\
+Puedes registrar todas las tiendas que quieras y administrarlas por separado, cada una con sus empleados, puestos y tareas asignadas.\
+La sección de administrar Empleados contiene un simple menú gráfico.
 
 ## 🛠️ Setup
-To run the program, it's as easy as running it on the NetBeans IDE console by loading the project and clicking the 'Run' button, or via the Java console.
+Para ejecutar el programa, es tan facil como correrlo en la consola del IDE Netbeans cargando el proyecto y dandole a 'Run', o a través de la consola con Java.
 
-## 📖 About the project
-The project's classes are mostly linked in a hierarchy to use programming techniques like Polymorphism to optimize the program's code.  
-This is the class diagram:  
-<img src="/RepositoryResources/classDiagram.png" width="500" alt="Class diagram">
+## 📖 Sobre el proyecto
+Las clases del proyecto están en su mayoria relacionadas entre ellas en una jerarquía para usar tecnicas de programación como el polimorfismo para optimizar el codigo del programa.\
+Este es el esquema de clases:
+<img src="/RepositoryResources/classDiagram.png" width="500" alt="Esquema de clases">
 
-> [!NOTE]  
-> The class diagram is displayed in Spanish, as it was part of my end-of-year project when I was studying Java.
+> [!NOTE]
+> Este esquema era parte de mi proyecto de fin de año cuando estaba estudiando Java.
 
-## 📂 Files
-The different classes are:
-- [Shop](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Shop.java): The main class in the project. It contains the list of employees, departments, and the manager.
-- [Department](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Department.java): Each department can have a name and a list of assigned tasks.
-- [Warehouse](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Warehouse.java): Each warehouse has a unique letter and a manager.
-- [Employee](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Employee.java): The most basic employee class. It has only general attributes and is abstract.
-- [EmployeeSalesFloor](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/EmployeeSalesFloor.java): Represents the employee who works publicly, physically in the shop.
-- [EmployeeWarehouse](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/EmployeeWarehouse.java): Represents the employees responsible for maintaining the warehouse of the shop.
-- [Supervisor](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Supervisor.java): Represents the employee in charge of a whole department.
-- [Manager](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Manager.java): Represents the person in charge of the shop, the boss.
-- [Task](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Task.java): Represents the tasks that can be assigned to individual employees or to an entire department.
+## 📂 Archivos
+Las diferentes clases son:
+- [Tienda](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Shop.java): La clase principal del programa. Contiene la lista de empleados, departamentos, y al gerente.
+- [Departamento](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Department.java): Cada departamento tiene un nombre y una lista con las tareas asginadas.
+- [Almacen](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Warehouse.java): Cada almacén tiene una letra identificativa y un gerente asignado.
+- [Empleado](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Employee.java): La clase de empleado más básica. Solo tiene la información básica y es abstracta.
+- [EmpleadoSala](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/EmployeeSalesFloor.java): Representa al empleado que trabaja de cara al público, físicamente en la tienda.
+- [EmpleadoAlmacen](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/EmployeeWarehouse.java): Representa a los empleados encargados de administrar el Almacén.
+- [Encargado](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Supervisor.java): Representa al empleado que está acargo de un Departamento.
+- [Gerente](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Manager.java): Representa a la persona que está a cargo de la tienda, el jefe.
+- [Tarea](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Task.java): Son las tareas que se pueden asignar a empleados por individual o a un Departamento entero.
 
-## 💻 Technologies used
-- Programming Language: [Java](https://www.java.com/)
-- Other:
-  - Class Diagram: [Dia](http://dia-installer.de/index.html)
-- Recommended IDE: [NetBeans](https://netbeans.apache.org/front/main/index.html)
+## 💻 Tecnologías Utilizadas
+- Lenguaje de programación: [Java](https://www.java.com/)
+- Otros:
+  - Esquema de clases: [Dia](http://dia-installer.de/index.html)
+- IDe Recomendado: [NetBeans](https://netbeans.apache.org/front/main/index.html)
