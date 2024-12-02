@@ -27,8 +27,8 @@ The different classes are:
 - [Department](): Each department can have a name and a list of assigned tasks.
 - [Warehouse](): Each warehouse has a unique letter and a manager.
 - [Employee](): The most basic employee class. It has only general attributes and is abstract.
-- [SalesFloorEmployee](): Represents the employee who works publicly, physically in the shop.
-- [WarehouseEmployee](): Represents the employees responsible for maintaining the warehouse of the shop.
+- [EmployeeSalesFloor](): Represents the employee who works publicly, physically in the shop.
+- [EmployeeWarehouse](): Represents the employees responsible for maintaining the warehouse of the shop.
 - [Supervisor](): Represents the employee in charge of a whole department.
 - [Manager](): Represents the person in charge of the shop, the boss.
 - [Task](): Represents the tasks that can be assigned to individual employees or to an entire department.
