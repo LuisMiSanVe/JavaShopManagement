@@ -15,7 +15,7 @@ Para ejecutar el programa, es tan facil como correrlo en la consola del IDE Netb
 
 ## 📖 Sobre el proyecto
 Las clases del proyecto están en su mayoria relacionadas entre ellas en una jerarquía para usar tecnicas de programación como el polimorfismo para optimizar el codigo del programa.\
-Este es el esquema de clases:
+Este es el esquema de clases:\
 <img src="/RepositoryResources/classDiagram.png" width="500" alt="Esquema de clases">
 
 > [!NOTE]
