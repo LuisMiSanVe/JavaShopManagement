@@ -75,7 +75,7 @@ public class Manager extends Supervisor{
     // Other methods
     @Override
     public String work(){
-        String work = "The manager " + getNombre() + " is managing the " + managementType + " of the shop with the tasks to do: " + getTasks();
+        String work = "The manager " + getName() + " is managing the " + managementType + " of the shop with the tasks to do: " + getTasks();
         return work;
     }
 }
