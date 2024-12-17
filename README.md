@@ -16,7 +16,7 @@ First, on Netbeans, create a new `Java with Ant` project named 'ShopManager' and
 ## 📖 About the project
 The project's classes are mostly linked in a hierarchy to use programming techniques like Polymorphism to optimize the program's code.  
 This is the class diagram:  
-<img src="/RepositoryResources/classDiagram.png" width="500" alt="Class diagram">
+<img src="https://github.com/LuisMiSanVe/LuisMiSanVe/blob/main/Resources/ShopManager/classDiagram.png" width="500" alt="Class diagram">
 
 > [!NOTE]  
 > The class diagram is displayed in Spanish, as it was part of my end-of-year project when I was studying Java.
