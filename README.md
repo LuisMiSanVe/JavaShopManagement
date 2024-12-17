@@ -13,6 +13,9 @@ La sección de administrar Empleados contiene un simple menú gráfico.
 ## 🛠️ Setup
 Para ejecutar el programa, es tan facil como correrlo en la consola del IDE Netbeans cargando el proyecto y dandole a 'Run', o a través de la consola con Java.
 
+Para ejecutar el programa, necesitarás el [JDK de Java](https://www.oracle.com/java/technologies/downloads/) y un entorno de consola, para este caso recomiendo usar directamente la consola del [IDE Netbeans](https://netbeans.apache.org/front/main/index.html).\
+Para empezar, en Netbeans, crea un proyecto nuevo de `Java con Ant` y llámalo 'ShopManager' luego sobreescribe la carpeta `src` que se crea con [la que has clonado de este repositorio](https://github.com/LuisMiSanVe/JavaShopManagement/tree/main/ShopManager/src).
+
 ## 📖 Sobre el proyecto
 Las clases del proyecto están en su mayoria relacionadas entre ellas en una jerarquía para usar tecnicas de programación como el polimorfismo para optimizar el codigo del programa.\
 Este es el esquema de clases:\
