@@ -19,7 +19,7 @@ Para empezar, en Netbeans, crea un proyecto nuevo de `Java con Ant` y llámalo '
 ## 📖 Sobre el proyecto
 Las clases del proyecto están en su mayoria relacionadas entre ellas en una jerarquía para usar tecnicas de programación como el polimorfismo para optimizar el codigo del programa.\
 Este es el esquema de clases:\
-<img src="/RepositoryResources/classDiagram.png" width="500" alt="Esquema de clases">
+<img src="https://github.com/LuisMiSanVe/LuisMiSanVe/blob/main/Resources/ShopManager/classDiagram.png" width="500" alt="Esquema de clases">
 
 > [!NOTE]
 > Este esquema era parte de mi proyecto de fin de año cuando estaba estudiando Java.
