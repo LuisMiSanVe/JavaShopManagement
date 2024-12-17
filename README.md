@@ -11,8 +11,8 @@ You can register all the shops you want and manage them separately, each with it
 The Employee management section has a simple graphical interface menu.
 
 ## 🛠️ Setup
-To run the program, it's as easy as running it on the NetBeans IDE console by loading the project and clicking the 'Run' button, or via the Java console.
-
+To run the program, you'll need the [Java JDK](https://www.oracle.com/java/technologies/downloads/) and a console enviroment, for this case I recommend using directly the [Netbeans IDE](https://netbeans.apache.org/front/main/index.html)'s console.\
+First, on Netbeans, create a new `Java with Ant` project named 'ShopManager' and overwrite the `src` folder it creates with [the one you cloned from this repository](https://github.com/LuisMiSanVe/JavaShopManagement/tree/main/ShopManager/src).
 ## 📖 About the project
 The project's classes are mostly linked in a hierarchy to use programming techniques like Polymorphism to optimize the program's code.  
 This is the class diagram:  
