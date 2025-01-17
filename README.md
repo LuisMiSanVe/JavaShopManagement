@@ -1,4 +1,4 @@
-> [See in spanish/Ver en español](https://github.com/LuisMiSanVe/JavaShopManagement/tree/spanish)
+> [See in spanish/Ver en español](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/README.es.md)
 
 # 📊 Shop Management Java Console Program
 
