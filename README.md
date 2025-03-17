@@ -13,6 +13,11 @@ The Employee management section has a simple graphical interface menu.
 ## 🛠️ Setup
 To run the program, you'll need the [Java JDK](https://www.oracle.com/java/technologies/downloads/) and a console enviroment, for this case I recommend using directly the [Netbeans IDE](https://netbeans.apache.org/front/main/index.html)'s console.\
 First, on Netbeans, create a new `Java with Ant` project named 'ShopManager' and overwrite the `src` folder it creates with [the one you cloned from this repository](https://github.com/LuisMiSanVe/JavaShopManagement/tree/main/ShopManager/src).
+
+You can also download the JAR file and run it in a CMD with this command:
+```
+java -jar ShopManager.jar
+```
 ## 📖 About the project
 The project's classes are mostly linked in a hierarchy to use programming techniques like Polymorphism to optimize the program's code.  
 This is the class diagram:  
@@ -32,6 +37,15 @@ The different classes are:
 - [Supervisor](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Supervisor.java): Represents the employee in charge of a whole department.
 - [Manager](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Manager.java): Represents the person in charge of the shop, the boss.
 - [Task](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Task.java): Represents the tasks that can be assigned to individual employees or to an entire department.
+
+## 🚀 Releases
+The version will be released using these versioning policies:\
+New major features and critical bug fixes will cause the immediate release of a new version, while other minor changes/fixes will wait one week from the time the change is introduced in the repository before being included in the new version, so that other potential changes can be added.
+>[!NOTE]
+>These potencial new changes will not increase the wait time for the new version beyond one week.
+
+The version number will follow this format: \
+\[Major Feature\].\[Minor Feature\].\[Bug Fixes\]
 
 ## 💻 Technologies used
 - Programming Language: [Java](https://www.java.com/)
