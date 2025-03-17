@@ -16,6 +16,10 @@ Para ejecutar el programa, es tan facil como correrlo en la consola del IDE Netb
 Para ejecutar el programa, necesitarás el [JDK de Java](https://www.oracle.com/java/technologies/downloads/) y un entorno de consola, para este caso recomiendo usar directamente la consola del [IDE Netbeans](https://netbeans.apache.org/front/main/index.html).\
 Para empezar, en Netbeans, crea un proyecto nuevo de `Java con Ant` y llámalo 'ShopManager' luego sobreescribe la carpeta `src` que se crea con [la que has clonado de este repositorio](https://github.com/LuisMiSanVe/JavaShopManagement/tree/main/ShopManager/src).
 
+También puedes descargar el JAR y ejecutarlo en un terminal con este comando:
+```
+java -jar ShopManager.jar
+```
 ## 📖 Sobre el proyecto
 Las clases del proyecto están en su mayoria relacionadas entre ellas en una jerarquía para usar tecnicas de programación como el polimorfismo para optimizar el codigo del programa.\
 Este es el esquema de clases:\
@@ -35,6 +39,15 @@ Las diferentes clases son:
 - [Encargado](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Supervisor.java): Representa al empleado que está acargo de un Departamento.
 - [Gerente](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Manager.java): Representa a la persona que está a cargo de la tienda, el jefe.
 - [Tarea](https://github.com/LuisMiSanVe/JavaShopManagement/blob/main/ShopManager/src/shopmanager/Task.java): Son las tareas que se pueden asignar a empleados por individual o a un Departamento entero.
+
+## 🚀 Lanzamientos
+Una versión será lanzada solo cuando se cumplan los siguientes puntos:\
+Nuevas funciones importantes y arreglos de fallos criticos causarán la salida inmediata de una nueva versión, mientras que otros cambios/arreglos menores deberán esperar una semana desde que se incluyeron en el repositorio antes de ser incluidos en la nueva versión, para que otros posibles cambios puedan ser añadidos tambien.
+>[!NOTE]
+>Estos posibles nuevos cambios no alargarán la espera de la salida de la nueva versión a más de una semana.
+
+El número de la versión seguirá este formato: \
+\[Añadido Importante\].\[Añadido Menor\].\[Arreglos de Errores\]
 
 ## 💻 Tecnologías Utilizadas
 - Lenguaje de programación: [Java](https://www.java.com/)
